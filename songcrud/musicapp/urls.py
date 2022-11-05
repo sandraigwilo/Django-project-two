@@ -13,10 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import rlcompleter
 from django.contrib import admin
-from django.urls import path
-from . import views
+from django.urls import path, include
 
+from . import views
+from .views import ArtisteView, SongView, LyricView
+ 
 urlpatterns = [
-    path('', views.index, name='index')
+     path('', views.index, name='index'),
+     path('artiste/', ArtisteView),
+     path('song/', SongView),
+     path('lyric/', LyricView),
 ]
